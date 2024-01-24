@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from nltk.sentiment import SentimentIntensityAnalyzer
 import pandas as pd
+from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
 # Assicurati di aver eseguito nltk.download('vader_lexicon') in precedenza
 sia = SentimentIntensityAnalyzer()
@@ -37,7 +38,6 @@ def load_file():
         except Exception as e:
             text_area.delete('1.0', tk.END)
             text_area.insert(tk.END, f"Errore nella lettura del file: {e}")
-
 def classify_sentiment(compound_score):
     if compound_score > positive_threshold:
         return 'Positive'
@@ -100,7 +100,6 @@ def update_graph(positive_pct, neutral_pct, negative_pct):
     else:
         sentiment_result.config(text="Nessun dato sufficiente per il grafico")
 
-# Aggiungi queste istruzioni print alla funzione calculate_accuracy
 def calculate_accuracy():
     if not current_predictions:
         accuracy_result.config(text="Carica e analizza un file DOCX prima.")
@@ -135,6 +134,39 @@ def calculate_accuracy():
     else:
         accuracy_result.config(text="Nessun file Excel selezionato")
 
+def calculate_metrics():
+    if not current_predictions:
+        metrics_result.config(text="Carica e analizza un file DOCX prima.")
+        return
+
+    file_path = filedialog.askopenfilename(
+        title="Scegli un file Excel",
+        filetypes=[("Excel files", "*.xlsx")]
+    )
+    if file_path:
+        try:
+            dataset = pd.read_excel(file_path)
+
+            if 'Text' in dataset.columns and 'Emotion' in dataset.columns:
+                annotations = dataset['Emotion'].tolist()[:len(current_predictions)]
+
+                precision = precision_score(annotations, current_predictions, average='weighted')
+                recall = recall_score(annotations, current_predictions, average='weighted')
+                f1 = f1_score(annotations, current_predictions, average='weighted')
+
+                confusion = confusion_matrix(annotations, current_predictions)
+
+                # Visualizza le metriche nella nuova area
+                metrics_result.config(text=f"Precision: {precision:.2f}, Recall: {recall:.2f}, F1-Score: {f1:.2f}")
+                print("Confusion Matrix:")
+                print(confusion)
+            else:
+                metrics_result.config(text="Il dataset Excel non ha le colonne necessarie.")
+        except Exception as e:
+            metrics_result.config(text=f"Errore nella lettura del file: {str(e)}")
+    else:
+        metrics_result.config(text="Nessun file Excel selezionato")
+
 root = tk.Tk()
 root.title("Sentiment Analysis")
 root.geometry("800x600")
@@ -147,7 +179,6 @@ text_area_frame.pack(pady=10)
 
 text_area = scrolledtext.ScrolledText(text_area_frame, wrap=tk.WORD, height=10, width=50)
 text_area.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
 
 sentiment_result = tk.Label(root, text="")
 sentiment_result.pack()
@@ -172,12 +203,7 @@ def on_select(event):
         elif fourth_column_value == 'Positive':
             style.map("Treeview", background=[("selected", "#45d927")])
 
-
-
 style = ttk.Style()
-
-
-
 
 table = ttk.Treeview(table_frame, columns=("Indice", "Frase", "Valore", "Esito"))
 table.heading("#1", text="Indice")
@@ -201,5 +227,11 @@ accuracy_btn.pack()
 
 accuracy_result = tk.Label(root, text="")
 accuracy_result.pack()
+
+metrics_btn = tk.Button(root, text="Calcola Metriche", command=calculate_metrics)
+metrics_btn.pack()
+
+metrics_result = tk.Label(root, text="")
+metrics_result.pack()
 
 root.mainloop()

@@ -16,7 +16,7 @@ Puoi installare le dipendenze richieste eseguendo il seguente comando:
 ```bash
 pip install transformers torch pandas nltk matplotlib python-docx
 
-
+```
 ## Utilizzo
 
 Esegui l'applicazione con il seguente comando:

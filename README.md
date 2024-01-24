@@ -1,6 +1,5 @@
 # Sentiment Analysis Tool
 
-
 **Sentiment Analysis Tool** è un'applicazione Python con un'interfaccia grafica che consente l'analisi del sentiment su recensioni di prodotti. Utilizza tecniche di elaborazione del linguaggio naturale (NLP) per valutare l'opinione degli utenti riguardo ai prodotti, offrendo un'utile prospettiva per miglioramenti futuri.
 
 ## Descrizione
@@ -9,7 +8,8 @@ Questo repository contiene un'applicazione Python con un'interfaccia grafica per
 
 ## Requisiti
 
-Assicurati di aver installato Python 3.7 o versioni successive.
+- Python 3.7 o versioni successive.
+- Dipendenze Python: `transformers`, `torch`, `pandas`, `nltk`, `matplotlib`, `python-docx`.
 
 Puoi installare le dipendenze richieste eseguendo il seguente comando:
 
@@ -20,10 +20,14 @@ pip install transformers torch pandas nltk matplotlib python-docx
 ## Utilizzo
 
 Esegui l'applicazione con il seguente comando:
+
 python sentiment_analysis.py
+Segui questi passaggi per utilizzare l'applicazione:
+
 Carica un documento DOCX contenente le recensioni dei prodotti tramite il pulsante "Sfoglia".
 L'app analizzerà il sentiment delle frasi nel documento e visualizzerà i risultati nell'interfaccia grafica.
 Puoi anche calcolare l'accuratezza delle previsioni del sentiment rispetto a un dataset di riferimento in formato Excel utilizzando il pulsante "Calcola Accuratezza".
+Inoltre, è possibile calcolare ulteriori metriche come Precision, Recall e F1-Score per valutare le prestazioni dell'analisi del sentiment.
 
 ## Personalizzazione
 

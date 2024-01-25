@@ -14,7 +14,7 @@ Questo repository contiene un'applicazione Python con un'interfaccia grafica per
 Puoi installare le dipendenze richieste eseguendo il seguente comando:
 
 ```bash
-pip install transformers torch pandas nltk matplotlib python-docx
+pip install pandas nltk matplotlib python-docx
 
 ```
 ## Utilizzo

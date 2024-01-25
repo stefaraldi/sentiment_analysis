@@ -22,7 +22,8 @@ Installazione delle Dipendenze
 Puoi installare tutte le dipendenze richieste eseguendo il seguente comando nel tuo ambiente Python:
 
 ```pip install python-docx matplotlib nltk pandas scikit-learn openpyxl``` 
-<img width="750" alt="Screenshot 2024-01-25 alle 13 04 06" src="https://github.com/stefaraldi/sentiment_analysis/assets/122448165/07326d6f-d4bc-431b-b5af-00c841557804">
+
+
 
 
 ## Utilizzo

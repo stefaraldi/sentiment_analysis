@@ -9,7 +9,7 @@ Questo repository contiene un'applicazione Python con un'interfaccia grafica per
 ## Requisiti
 
 - Python 3.7 o versioni successive.
-- Dipendenze Python: `transformers`, `torch`, `pandas`, `nltk`, `matplotlib`, `python-docx`.
+- Dipendenze Python: `pandas`, `nltk`, `matplotlib`, `python-docx`.
 
 Puoi installare le dipendenze richieste eseguendo il seguente comando:
 

@@ -38,7 +38,7 @@ Inoltre, è possibile calcolare ulteriori metriche come Precision, Recall e F1-S
 
 ## Personalizzazione
 
-Puoi personalizzare il codice per adattarlo alle tue esigenze specifiche o modificare le soglie di classificazione del sentiment nel file sentiment_analysis.py.
+Puoi personalizzare il codice per adattarlo alle tue esigenze specifiche o modificare le soglie di classificazione del sentiment, inserendo il tuo file DOCX contenente le review da classificare.
 
 ## Autori
 Stefano Faraldi

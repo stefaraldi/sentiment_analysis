@@ -39,9 +39,10 @@ Puoi personalizzare il codice per adattarlo alle tue esigenze specifiche o modif
 
 ## Autori
 Stefano Faraldi
+
 ## Licenza
 
-Questo progetto è distribuito con la licenza MIT. Vedi il file LICENSE per ulteriori dettagli.
+Questo progetto è distribuito sotto la Licenza Apache 2.0. Questa è una licenza permissiva le cui condizioni principali richiedono la conservazione delle note di copyright e di licenza. I contributori forniscono un'espressa concessione dei diritti di brevetto. Opere, modifiche e opere di maggiore entità possono essere distribuite secondo termini differenti e senza il codice sorgente.
 
-Assicurati di sostituire `[Stefano Faraldi]` con il tuo nome o il nome del team di sviluppo e di includere il file di licenza corretto se diverso dalla licenza MIT.
+Per ulteriori dettagli, consulta il file LICENSE incluso in questo progetto.
 

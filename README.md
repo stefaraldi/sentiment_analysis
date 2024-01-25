@@ -7,14 +7,26 @@
 Questo repository contiene un'applicazione Python con un'interfaccia grafica per l'analisi del sentiment su recensioni di prodotti. L'app utilizza il modulo NLTK (Natural Language Toolkit) per calcolare il sentiment di frasi all'interno di documenti DOCX. Inoltre, è possibile calcolare ulteriori metriche come Precision, Recall e F1-Score, oltre all'accuratezza del sentiment previsto rispetto a un dataset di riferimento in formato Excel.
 
 ## Requisiti
+Questo progetto richiede Python 3.7 o versioni successive. Assicurati di avere le seguenti librerie Python installate:
 
-- Python 3.7 o versioni successive.
-- Dipendenze Python: `pandas`, `nltk`, `matplotlib`, `python-docx`.
+python-docx: Per la lettura di file Word (.docx).
+matplotlib: Per la creazione di grafici e visualizzazioni.
+nltk: Per l'analisi del sentiment.
+pandas: Per la manipolazione e l'analisi dei dati.
+scikit-learn: Per il calcolo di metriche come precisione, richiamo e punteggio F1.
+openpyxl: Come dipendenza per pandas per leggere i file Excel (.xlsx).
+La libreria tkinter è anche necessaria per l'interfaccia grafica, ma è generalmente inclusa nelle installazioni standard di Python.
 
-Puoi installare le dipendenze richieste eseguendo il seguente comando:
+Installazione delle Dipendenze
 
-```bash
-pip install pandas nltk matplotlib python-docx
+Puoi installare tutte le dipendenze richieste eseguendo il seguente comando nel tuo ambiente Python:
+pip install python-docx matplotlib nltk pandas scikit-learn openpyxl
+Configurazione di NLTK
+
+Dopo aver installato nltk, è necessario scaricare il set di dati vader_lexicon, utilizzato dal SentimentIntensityAnalyzer. Esegui il seguente comando Python per completare questa configurazione:
+import nltk
+nltk.download('vader_lexicon')
+
 
 ```
 ## Utilizzo
